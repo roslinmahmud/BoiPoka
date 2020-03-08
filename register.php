@@ -16,6 +16,7 @@
 <body>
   <!-- Loads the Header -->
   <?php include 'include/header.php'?>
+  
   <!-- Loads the register-validate -->
   <?php include 'include/register-validate.php'?>
 
