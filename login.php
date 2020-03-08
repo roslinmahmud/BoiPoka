@@ -16,15 +16,48 @@
 <body>
   <!-- Loads the Header-->
   <?php include 'include/header.php'?>
+  <br>
 
-  <div class="container">
+  <div class="container" >
 
     <!--Start your coding here-->
+     
     
-  </div>
+    <div class="container border border-light" style="width: 500px;">
+          <h1>Sign in</h1>
+     
+      <form method="post">
+            <div class="form-group">
+                <label for="username">Username: </label>
+                <input type="text" class="form-control text-lowercase"  id="username" aria-describedby="usernameText">
+                <small id="usernameText" ></small>
+            </div>
+            <div  class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" class="form-control" id="password" aria-describedby="passwordText">
+                <small id="passwordText" ></small>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+              
+          </div>
+      </form>
+      
+      </div>
 
   <!-- Loads the Footer-->
   <?php include 'include/footer.php'?>
 </body>
+
+
+<?php
+
+    
+
+
+
+
+
+
+?>
 
 </html>
