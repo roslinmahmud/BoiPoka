@@ -15,12 +15,12 @@
 
 <body>
   <!-- Loads the Header -->
-  <?php include 'include/header.php'?>
+  <?php include '../include/header.php'?>
   
   <!-- Loads the register-validate -->
-  <?php include 'include/register-validate.php'?>
+  <?php include '../include/register-validate.php'?>
 
-  <div class="container border border-light" style="width: 500px;">
+  <div class="container border border-light" style="width: 500px; margin-top: 10px;">
     <form method="POST">
       <h3>Register</h3>
       <div class="form-group">
@@ -61,11 +61,14 @@
       <div class="form-group">
         <button type="submit" name="submit" class="btn btn-primary">Register</button>
       </div>
+      <div class="form-group">
+        <span>Already have an account? <a href="login.php">Login</a></span>
+      </div>
     </form>
   </div>
 
   <!-- Loads the Footer-->
-  <?php include 'include/footer.php'?>
+  <?php include '../include/footer.php'?>
 </body>
 
 </html>

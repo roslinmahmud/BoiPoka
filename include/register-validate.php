@@ -14,7 +14,6 @@
             }
             else{
                 $nameValidity = 'is-valid';
-                $valid = true;
             }
         }
         else{
@@ -37,7 +36,6 @@
             }
             else{
                 $emailValidity = 'is-valid';
-                $valid = true;
             }
         }
         else{
@@ -55,7 +53,6 @@
             }
             else{
                 $usernameValidity = 'is-valid';
-                $valid = true;
             }
         }
         else{
@@ -75,7 +72,6 @@
                 }
                 else{
                     $numberValidity = 'is-valid';
-                    $valid = true;
                 }
             }
             else{
@@ -86,7 +82,6 @@
         else{
             $number = $_REQUEST['number'];
             $numberValidity = 'is-valid';
-            $valid = true;
         }
         // Validating Address
         if(isset($_REQUEST['address'])){
@@ -98,7 +93,6 @@
             }
             else{
                 $addressValidity = 'is-valid';
-                $valid = true;
             }
         }
         else{
@@ -130,7 +124,6 @@
             else{
                 $passwordValidity = 'is-valid';
                 $cpasswordValidity = 'is-valid';
-                $valid = true;
             }
         }
         else{

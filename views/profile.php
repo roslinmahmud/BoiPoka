@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Update Profile - BoiPoka | Book Sharing Platform</title>
+  <title>Profile - BoiPoka | Book Sharing Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="manifest" href="site.webmanifest">
@@ -15,13 +15,13 @@
 
 <body>
   <!-- Loads the Header -->
-  <?php include 'include/header.php'?>
+  <?php include '../include/header.php'?>
   <!-- Loads the register-validate -->
-  <?php include 'include/profile-validate.php'?>
+  <?php include '../include/profile-validate.php'?>
 
-  <div class="container border border-light" style="width: 500px;">
+  <div class="container border border-light" style="width: 500px;margin-top: 10px;">
     <form method="POST">
-      <h3>Update Profile</h3>
+      <h3>Profile</h3>
       <div class="form-group">
         <label for="name">Full Name</label>
         <input type="text" class="form-control text-capitalize <?php print $nameValidity;?>" value="<?php print $name?>" name="name" id="name"  aria-describedby="nameText" required>
@@ -55,7 +55,7 @@
   </div>
 
   <!-- Loads the Footer-->
-  <?php include 'include/footer.php'?>
+  <?php include '../include/footer.php'?>
 </body>
 
 </html>
