@@ -1,8 +1,12 @@
 <?php
+    // Import register() function
+    require("../controllers/register-control.php");
+
     $name = $email = $username = $number = $address = $password = $cpassword = "";
     $nameErr = $usernameErr = $numberErr = $addressErr = $passwordErr = $cpasswordErr = "";
     $nameValidity = $emailValidity = $usernameValidity = $numberValidity = $addressValidity = $passwordValidity = $cpasswordValidity = "";
     $valid = true;
+
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Validating Name
         if(isset($_REQUEST['name'])){
@@ -21,6 +25,7 @@
             $nameValidity = 'is-invalid';
             $valid = false;
         }
+
         // Validating Email
         if(isset($_REQUEST['email'])){
             $email = $_REQUEST['email'];
@@ -43,6 +48,7 @@
             $emailValidity = 'is-invalid';
             $valid = false;
         }
+
         // Validating Username
         if(isset($_REQUEST['username'])){
             $username = $_REQUEST['username'];
@@ -60,6 +66,7 @@
             $usernameValidity = 'is-invalid';
             $valid = false;
         }
+
         // Validating Moblile number
         if(!empty($_REQUEST['number'])){
             $number = $_REQUEST['number'];
@@ -83,6 +90,7 @@
             $number = $_REQUEST['number'];
             $numberValidity = 'is-valid';
         }
+
         // Validating Address
         if(isset($_REQUEST['address'])){
             $address = $_REQUEST['address'];
@@ -100,6 +108,7 @@
             $addressValidity = 'is-invalid';
             $valid = false;
         }
+
         // Validating Password
         if(isset($_REQUEST['password']) and $_REQUEST['cpassword']){
             $password = $_REQUEST['password'];
@@ -131,5 +140,17 @@
             $cpassword = $_REQUEST['cpassword'];
             $valid = false;
         }
+
+        if($valid){
+            if(register($name, $email, $username, $number, $address, $password)){
+                $_SESSION['username'] = $username;
+                header("Location: /BoiPoka/");
+            }
+            else{
+                print "Registration unsuccessful!";
+            }
+            
+        }
+
     }
 ?>

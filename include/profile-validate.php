@@ -1,6 +1,3 @@
-
-
-
 <?php
     $name = $email = $username = $number = $address = "";
     $nameErr = $usernameErr = $numberErr = $addressErr= "";

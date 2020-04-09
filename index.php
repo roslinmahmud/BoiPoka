@@ -15,8 +15,16 @@
 
   <body>
     <!-- Loads the Header-->
-    <?php include 'include/header.php'?>
+    <?php include 'include/header.php' ?>
+
+    <?php require 'models/database-connect.php' ?>
+
+
     <div class="container" style="margin: 100px;">
+      <?php if(isset($_SESSION['username'])){
+        print $_SESSION['username'];
+      }
+      ?>
       <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
@@ -34,6 +42,7 @@
         </div>
       </div>
     </div>
+
     <!-- Loads the Footer-->
     <?php include 'include/footer.php'?>
   </body>

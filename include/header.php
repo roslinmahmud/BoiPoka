@@ -1,5 +1,6 @@
 <!--Heading Navbar Start-->
 <?php
+  // Start Seession
   session_start();
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,6 +16,9 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="share.php">Share Book</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="profile.php">Profile</a>
