@@ -51,11 +51,11 @@
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" class="form-control <?php print $passwordValidity;?>" value="<?php print $password?>" name="password" id="password" placeholder="********" aria-describedby="passwordText" required>
-        <small id="nameText" class="invalid-feedback"><?php print $passwordErr;?></small>
+        <small id="passwordText" class="invalid-feedback"><?php print $passwordErr;?></small>
       </div>
       <div class="form-group">
         <label for="cpassword">Confirm Password</label>
-        <input type="password" class="form-control <?php print $cpasswordValidity;?>" value="<?php print $cpassword?>" name="cpassword" id="cpassword" placeholder="********" aria-describedby="cpasswordText" required>
+        <input oninput="validatePassword()" type="password" class="form-control <?php print $cpasswordValidity;?>" value="<?php print $cpassword?>" name="cpassword" id="cpassword" placeholder="********" aria-describedby="cpasswordText" required>
         <small id="cpasswordText" class="form-text text-muted"></small>
       </div>
       <div class="form-group">
@@ -69,6 +69,24 @@
 
   <!-- Loads the Footer-->
   <?php include '../include/footer.php'?>
+
+  <script>
+    //Validating Register Password & Confirm-Password
+    function validatePassword(){
+      var password = document.getElementById('password');
+      var cpassword = document.getElementById('cpassword');
+      var passwordErr = document.getElementById('passwordText');
+      if(password.value == cpassword.value){
+        password.className = "form-control is-valid";
+        cpassword.className = "form-control is-valid";
+      }
+      else{
+        password.className = "form-control is-invalid";
+        cpassword.className = "form-control is-invalid";
+        passwordErr.innerHTML = "Password do not match!";
+      }
+    }
+  </script>
 </body>
 
 </html>
