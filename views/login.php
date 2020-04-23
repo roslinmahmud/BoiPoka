@@ -24,6 +24,9 @@
           <h3>Sign in</h3>
      
       <form method="post">
+            <?php
+              print $authenticationError;
+            ?>
             <div class="form-group">
               <label for="username">Username</label>
               <input type="text" class="form-control text-lowercase <?php print $usernameValidity;?>" value="<?php print $username?>" name="username" id="username" placeholder="username" aria-describedby="usernameText" required>

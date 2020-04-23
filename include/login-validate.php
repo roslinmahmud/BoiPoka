@@ -1,4 +1,12 @@
 <?php
+    // Import login() function
+    require("../controllers/login-control.php");
+
+    if(isset($_SESSION['username'])){
+        header("Location: /BoiPoka/");
+    }
+
+    $authenticationError = "";
     $username = $password = $cpassword = "";
     $usernameErr = $passwordErr = "";
     $usernameValidity = $passwordValidity = "";
@@ -36,6 +44,22 @@
         else{
             $password = $_REQUEST['password'];
             $valid = false;
+        }
+    }
+    else{
+        $valid = false;
+    }
+
+    if($valid){
+        print $username;
+        $result = login($username, $password);
+        if($row = $result->fetch_assoc()){
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['username'] = $username;
+            header("Location: /BoiPoka/");
+        }
+        else{
+            $authenticationError = '<div class="alert alert-danger" role="alert">Invalid username/password </div>';
         }
     }
 ?>

@@ -1,4 +1,6 @@
 <?php
+
+    $category = array("Art", "Academic", "Biography", "Business", "Children's", "Christian", "Classics", "Comics", "Contemporary", "Cookbooks", "Crime", "Ebooks", "Fantasy", "Fiction", "Graphic", "Novels", "Historical", "Fiction", "History", "Horror", "Humor", "and", "Comedy", "Manga", "Memoir", "Music", "Mystery", "Nonfiction", "Paranormal", "Philosophy", "Poetry", "Psychology", "Religion", "Romance", "Science", "Science", "Fiction", "Self", "Help", "Suspense", "Spirituality", "Sports", "Thriller", "Travel");
     $bookname = $authorname = $price = "";
     $booknameErr = $authornameErr = $priceErr = "";
     $booknameValidity = $authornameValidity = $priceValidity = "";
@@ -18,7 +20,6 @@
                 $booknameValidity = 'is-valid';
             }
         }
-
         // Validating Book Name
         if(isset($_REQUEST['authorname'])){
             $authorname = $_POST['authorname'];

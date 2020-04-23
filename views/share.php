@@ -24,6 +24,7 @@
     <form method="POST" enctype="multipart/form-data">
       <h3>Share Book</h3>
       <table class="table table-sm table-borderless">
+
         <tr>
           <td rowspan="2">
             <img src="<?php print $upload_image ?>" id="preview" alt="..." class="img-thumbnail img-fluid" height="150px" width="200px">
@@ -35,8 +36,8 @@
               <small id="booknameText" class="invalid-feedback"><?php print $booknameErr;?></small>
             </div>
           </td>
-          
         </tr>
+
         <tr>
           <td>
             <div class="form-group">
@@ -46,21 +47,49 @@
             </div>
           </td>
         </tr>
+
         <tr>
           <td>
-            <input oninput="showImage()" type="file" name="bookImage" id="bookImage" value="Chose">
+            <div class="input-group" style="width: 205px;">
+              <div class="custom-file">
+                <input oninput="showImage()" type="file" name="bookImage" id="bookImage" value="Chose">
+                <label class="custom-file-label" for="bookImage">Choose Cover</label>
+              </div>
+            </div>
           </td>
           <td>
             <div class="form-group">
               <label for="username">Price</label>
-              <input type="text" class="form-control text-lowercase <?php print $priceValidity;?>" value="<?php print $price?>" name="price" id="price" placeholder="100.00" aria-describedby="priceText" required>
+              <input type="text" class="form-control text-lowercase <?php print $priceValidity;?>" value="<?php print $price?>" name="price" id="price" placeholder="100.00৳" aria-describedby="priceText" required>
               <small id="priceText" class="invalid-feedback"><?php print $priceErr;?></small>
             </div>
           </td>
         </tr>
+
         <tr>
           <td>
-            <button type="submit" name="submit" class="btn btn-primary">Share</button>
+          </td>
+          <td>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select class="custom-select" id="category" name="category" required>
+                <option selected disabled value="">Choose...</option>
+                <?php
+                  for ($i=0; $i < count($category); $i++) { 
+                    print "<option>".$category[$i]."</option>";
+                  }
+                ?>
+              </select>
+              <small id="priceText" class="invalid-feedback">Please select a valid category.</small>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="form-group">
+              <button type="submit" name="submit" class="btn btn-primary">Share</button>
+            </div>
           </td>
         </tr>
       </table>
