@@ -23,6 +23,9 @@
   <div class="container border border-light" style="width: 600px; margin-top: 10px;">
     <form method="POST" enctype="multipart/form-data">
       <h3>Share Book</h3>
+      <?php
+        print $shareStatus;
+      ?>
       <table class="table table-sm table-borderless">
 
         <tr>
@@ -52,7 +55,7 @@
           <td>
             <div class="input-group" style="width: 205px;">
               <div class="custom-file">
-                <input oninput="showImage()" type="file" name="bookImage" id="bookImage" value="Chose">
+                <input oninput="showImage()" type="file" name="bookImage" id="bookImage" required>
                 <label class="custom-file-label" for="bookImage">Choose Cover</label>
               </div>
             </div>
@@ -75,8 +78,8 @@
               <select class="custom-select" id="category" name="category" required>
                 <option selected disabled value="">Choose...</option>
                 <?php
-                  for ($i=0; $i < count($category); $i++) { 
-                    print "<option>".$category[$i]."</option>";
+                  for ($i=0; $i < count($categories); $i++) { 
+                    print "<option>".$categories[$i]."</option>";
                   }
                 ?>
               </select>

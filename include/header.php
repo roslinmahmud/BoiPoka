@@ -19,9 +19,11 @@
 <?php
   if(!isset($_SESSION['username'])){
     print
-    '<li class="nav-item">
+    '
+    <li class="nav-item">
       <a class="nav-link" href="login.php">Login</a>
-    </li>';
+    </li>
+    ';
   }
   else{
     print

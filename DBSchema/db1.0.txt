@@ -1,0 +1,11 @@
+CREATE TABLE Books (
+    BookID int NOT NULL AUTO_INCREMENT,
+    BookName varchar(128) NOT NULL,
+    AuthorName varchar(128) NOT NULL,
+    Price float NOT NULL,
+    Category varchar(64) NOT NULL,
+    BookImage varchar(64) DEFAULT 'blank.png' UNIQUE,
+    ID int NOT NULL,
+    PRIMARY KEY (BookID),
+    FOREIGN KEY (ID) REFERENCES Users(ID)
+);
