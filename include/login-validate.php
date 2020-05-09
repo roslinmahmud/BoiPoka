@@ -51,7 +51,6 @@
     }
 
     if($valid){
-        print $username;
         $result = login($username, $password);
         if($row = $result->fetch_assoc()){
             $_SESSION['id'] = $row['id'];

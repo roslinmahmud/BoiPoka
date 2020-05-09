@@ -70,22 +70,19 @@
         else{
             $valid = false;
         }
-        
-    }
-    else{
-        $valid = false;
-    }
 
-    if($valid){
-        if(share($bookname, $authorname, $price, $category, $_SESSION['username'].'_'.$img, $_SESSION['id'])){
-            $shareStatus = '<div class="alert alert-success" role="alert">Share successful!</div>';
-            move_uploaded_file($_FILES['bookImage']['tmp_name'], $dir.$_SESSION['username'].'_'.$img);
+        if($valid){
+            if(share($bookname, $authorname, $price, $category, $_SESSION['username'].'_'.$img, $_SESSION['id'])){
+                $shareStatus = '<div class="alert alert-success" role="alert">Share successful!</div>';
+                move_uploaded_file($_FILES['bookImage']['tmp_name'], $dir.$_SESSION['username'].'_'.$img);
+            }
+            else{
+                $shareStatus = '<div class="alert alert-danger" role="alert">Share unsuccessful!</div>';
+            }
         }
         else{
             $shareStatus = '<div class="alert alert-danger" role="alert">Share unsuccessful. Invalid data given!</div>';
         }
-    }
-    else{
-        $shareStatus = '<div class="alert alert-danger" role="alert">Share unsuccessful. Invalid data given!</div>';
+        
     }
 ?>
