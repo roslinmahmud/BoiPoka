@@ -18,7 +18,7 @@
     <?php include 'include/header.php' ?>
 
     <!-- Import getBookData() function -->
-    <?php include 'controllers/index-control.php' ?>
+    <?php require 'controllers/index-control.php' ?>
 
     <div class="container">
 <?php

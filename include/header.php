@@ -11,10 +11,14 @@
   </button>
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search Book" aria-label="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    <form class="form my-2 my-lg-0">
+      <div class="container">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Book" aria-label="Search" onkeyup="query(this.value)">
+        <div class="position-absolute" style="top: 50px;" id="result"></div>
+      </div>
+      <!--<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>-->
     </form>
+    
     <ul class="navbar-nav">
 <?php
   if(!isset($_SESSION['username'])){
@@ -45,4 +49,24 @@
   </div>
 
 </nav>
+
+<script>
+  function query(query){
+    //document.getElementById("result").innerHTML=query;
+    if(query.length == 0){
+      document.getElementById("result").innerHTML="";
+      return;
+    }
+    else{
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange=function(){
+      if(this.readyState == 4 && this.status == 200){
+        document.getElementById("result").innerHTML=this.responseText;
+      }
+    }
+    xmlhttp.open("GET", "views/search.php?query="+query, true);
+    xmlhttp.send();
+    }
+  }
+</script>
 <!--Heading Navbar End-->
