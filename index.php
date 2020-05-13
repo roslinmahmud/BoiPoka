@@ -20,22 +20,22 @@
     <!-- Import getBookData() function -->
     <?php include 'controllers/index-control.php' ?>
 
-    <div class="container" style="margin: 10px;">
+    <div class="container">
 <?php
     $result = getBookData();
     if ($result->num_rows > 0) {
-        print '<div class="row border">';
+        print '<div class="row border" style="margin: 10px;">';
         while($data = $result->fetch_assoc()){
         print'
             <div class="col">
-            <div class="card" style="width: 192px; margin: 2px;">
-                <img src="/BoiPoka/img/book/'.$data['BookImage'].'" class="card-img-top" alt="..." height="160px" width="160px">
-                <div class="card-body">
-                <h6 class="card-title">'.$data['BookName'].'</h6>
-                <p class="card-text">'.$data['AuthorName'].'</p>
-                <a href="#" class="btn btn-primary">View Details</a>
-                </div>
-            </div>
+              <div class="card" style="width: 192px; margin: 2px;">
+                  <img src="/BoiPoka/img/book/'.$data['BookImage'].'" class="card-img-top" alt="..." height="160px" width="160px">
+                  <div class="card-body">
+                  <h6 class="card-title">'.$data['BookName'].'</h6>
+                  <p class="card-text">'.$data['AuthorName'].'</p>
+                  <a href="#" class="btn btn-primary">View Details</a>
+                  </div>
+              </div>
             </div>
         ';
         }
