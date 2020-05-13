@@ -33,7 +33,7 @@
                   <div class="card-body">
                   <h6 class="card-title">'.$data['BookName'].'</h6>
                   <p class="card-text">'.$data['AuthorName'].'</p>
-                  <a href="#" class="btn btn-primary">View Details</a>
+                  <a href="book.php?id='. $data['BookID'].'" class="btn btn-primary">View Details</a>
                   </div>
               </div>
             </div>
