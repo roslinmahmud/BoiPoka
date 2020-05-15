@@ -22,34 +22,26 @@
   
 
 <?php
-     $result = get_profile_info($_SESSION['id']);
-     
-
-     while($data = $result->fetch_assoc()){
-
-      
-      $full_name=$data['name'];
-      $username=$data['username'];
-      $email=$data['email'];
-      $number=$data['number'];
-      $address=$data['address'];
-      $password=$data['password'];
-      $cpassword=$password;
-      
-     }
-
-
+    $result = get_profile_info($_SESSION['id']);
     
+    while($data = $result->fetch_assoc()){
+     
+     $full_name=$data['name'];
+     $username=$data['username'];
+     $email=$data['email'];
+     $number=$data['number'];
+     $address=$data['address'];
+     $password=$data['password'];
+     $cpassword=$password;
+     
+    }
 ?>
 
   
   <div class="container border border-light" style="width: 500px;margin-top: 10px;">
     <form method="POST">
-
-      
-      <div class="container border border-light" style="width: 500px; margin-top: 10px;">
-    <form method="POST">
       <h3>Profile</h3>
+      <hr>
       <div class="form-group">
         <label for="name">Full Name</label>
         <input value="<?php print $full_name ?>" type="text" class="form-control text-capitalize <?php print $nameValidity;?>" value="<?php print $name?>" name="name" id="name" placeholder="Full Name" aria-describedby="nameText" required>

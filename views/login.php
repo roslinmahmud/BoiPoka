@@ -21,8 +21,8 @@
   <div class="container" >
     
     <div class="container border border-light" style="width: 500px; margin-top: 10px;">
-          <h3>Sign in</h3>
-     
+          <h3>Sign In</h3>
+          <hr>
       <form method="post">
             <?php
               print $authenticationError;

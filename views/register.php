@@ -23,6 +23,7 @@
   <div class="container border border-light" style="width: 500px; margin-top: 10px;">
     <form method="POST">
       <h3>Register</h3>
+      <hr>
       <div class="form-group">
         <label for="name">Full Name</label>
         <input type="text" class="form-control text-capitalize <?php print $nameValidity;?>" value="<?php print $name?>" name="name" id="name" placeholder="Full Name" aria-describedby="nameText" required>
