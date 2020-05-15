@@ -1,3 +1,4 @@
+<?php require("../controllers/profile-update-control.php")?>
 <?php
     $name = $email = $username = $number = $address = "";
     $nameErr = $usernameErr = $numberErr = $addressErr= "";
@@ -105,6 +106,52 @@
             $address = $_REQUEST['address'];
             $addressValidity = 'is-invalid';
             $valid = false;
+        }
+
+
+        // Validating Password
+        if(isset($_REQUEST['password']) and $_REQUEST['cpassword']){
+            $password = $_REQUEST['password'];
+            $cpassword = $_REQUEST['cpassword'];
+            if(ctype_space($password)){
+                $passwordValidity = 'is-invalid';
+                $passwordErr = "Password is required!";
+                $valid = false;
+            }
+            if(ctype_space($cpassword)){
+                $cpasswordValidity = 'is-invalid';
+                $cpasswordErr = "Confirm Password is required!";
+                $valid = false;
+
+            }
+            if(strcmp($password, $cpassword) != 0){
+                $passwordValidity = 'is-invalid';
+                $cpasswordValidity = 'is-invalid';
+                $passwordErr = "Password do not match!";
+                $valid = false;
+            }
+            else{
+                $passwordValidity = 'is-valid';
+                $cpasswordValidity = 'is-valid';
+            }
+        }
+        else{
+            $password = $_REQUEST['password'];
+            $cpassword = $_REQUEST['cpassword'];
+            $valid = false;
+        }
+
+        if($valid){
+            
+            if(update($_SESSION['id'],$name, $email, $username, $number, $address, $password)){
+
+                print "Successfully Updated!";
+               
+            }
+            else{
+                print "Update processs unsuccessful!";
+            }
+            
         }
         
        

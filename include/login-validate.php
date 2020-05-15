@@ -1,3 +1,4 @@
+
 <?php
     // Import login() function
     require("../controllers/login-control.php");

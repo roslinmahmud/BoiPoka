@@ -6,4 +6,6 @@
         $query = "select id from users where username='$username' and password='$password';";
         return executeQuery($query);
     }
+
+    
 ?>
