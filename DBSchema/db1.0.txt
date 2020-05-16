@@ -1,4 +1,4 @@
-CREATE TABLE Books (
+CREATE TABLE books (
     BookID int NOT NULL AUTO_INCREMENT,
     BookName varchar(128) NOT NULL,
     AuthorName varchar(128) NOT NULL,
@@ -7,5 +7,15 @@ CREATE TABLE Books (
     BookImage varchar(64) DEFAULT 'blank.png' UNIQUE,
     ID int NOT NULL,
     PRIMARY KEY (BookID),
+    FOREIGN KEY (ID) REFERENCES Users(ID)
+);
+
+CREATE TABLE reviews (
+    ReviewID int NOT NULL AUTO_INCREMENT,
+    Review varchar(256) NOT NULL,
+    BookID int NOT NULL,
+    ID int NOT NULL,
+    PRIMARY KEY (ReviewID),
+    FOREIGN KEY (BookID) REFERENCES Books(BookID),
     FOREIGN KEY (ID) REFERENCES Users(ID)
 );

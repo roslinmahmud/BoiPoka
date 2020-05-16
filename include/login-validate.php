@@ -55,6 +55,7 @@
         $result = login($username, $password);
         if($row = $result->fetch_assoc()){
             $_SESSION['id'] = $row['id'];
+            $_SESSION['name'] = $row['name'];
             $_SESSION['username'] = $username;
             header("Location: /BoiPoka/");
         }

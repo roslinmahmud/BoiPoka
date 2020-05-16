@@ -11,5 +11,14 @@
         $query = "select * from users where ID=$id";
         return executeQuery($query);
     }
+    function getUserName($id){
+        $query = "select name from users where ID=$id";
+        return executeQuery($query);
+    }
+
+    function getReviews($id){
+        $query = "select * from reviews where BookID=$id";
+        return executeQuery($query);
+    }
 
 ?>
