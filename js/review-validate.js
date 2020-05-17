@@ -21,7 +21,7 @@ function submit(bookid, name){
     var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange=function(){
       if(this.readyState == 4 && this.status == 200){
-        document.getElementById("review").placeholder=this.responseText;
+        review.placeholder=this.responseText;
         reviews.innerHTML=inner+'<li class="list-group-item"><h6>'+name+'</h6><p>'+review.value+'</p></li>';
         review.value = "";
       }

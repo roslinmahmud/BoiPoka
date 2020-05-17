@@ -23,7 +23,6 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $bookid = $_REQUEST['id'];
-        $name = $_SESSION['name'];
         $result = getBookData($bookid);
         
         if ($result->num_rows > 0) {
@@ -78,6 +77,10 @@
       <div class="border border-light bg-light" style="margin: 10px; padding: 10px;">
         <h3>Reviews</h3>
         <hr>
+<?php
+  if(isset($_SESSION['name'])){
+    $name = $_SESSION['name'];
+    print '
         <div class="form-group">
           <label for="review">Write your review</label>
           <textarea onkeyup="validate()" class="form-control" id="review" placeholder="Please write your honest opinion"></textarea>
@@ -86,15 +89,21 @@
           </div>
         </div>
         <div class="form-group">
-          <button onclick='submit("<?php print $bookid?>", "<?php print $name ?>")' class="btn btn-primary">Submit</button>
+          <button onclick='."'".'submit("'.$bookid.'","'.$name.'")'."'".' class="btn btn-primary">Submit</button>
         </div>
+    ';
+  }
+  else{
+    print '
+    <div class="alert alert-danger" role="alert">
+      Please login to submit review.
+    </div>
+    ';
+  }
 
-<?php
-  $bookid = $_REQUEST['id'];
   $result = getReviews($bookid);
-  
+  print '<ul id="reviews" class="list-group">';
   if ($result->num_rows > 0) {
-      print '<ul id="reviews" class="list-group">';
       while($data = $result->fetch_assoc()){
         $user = getUserName($data['ID']);
         $user = $user->fetch_assoc();
@@ -105,10 +114,9 @@
           </li>
         ';
       }
-      print "</ul>";
   }
+  print "</ul>";
 ?>
-        </ul>
       </div>
     </div>
 
